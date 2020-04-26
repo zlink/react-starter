@@ -4,21 +4,24 @@ import { bindActionCreators } from 'redux';
 import * as actionCreators from './store/actionCreators';
 
 function Counter(props) {
-  const { counter } = props;
-  console.log(counter);
+  const {
+    counter,
+    actions: { increment, decrement, incrementIfOdd, incrementAsync },
+  } = props;
+
   return (
     <>
       <h1>{counter}</h1>
-      <button type="button" onClick={() => props.actions.increment()}>
+      <button type="button" onClick={() => increment()}>
         increment
       </button>
-      <button type="button" onClick={() => props.actions.decrement()}>
+      <button type="button" onClick={() => decrement()}>
         decrement
       </button>
-      <button type="button" onClick={() => props.actions.incrementIfOdd()}>
+      <button type="button" onClick={() => incrementIfOdd()}>
         incrementIfOdd
       </button>
-      <button type="button" onClick={() => props.actions.incrementAsync()}>
+      <button type="button" onClick={() => incrementAsync()}>
         incrementAsync
       </button>
     </>
